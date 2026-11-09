@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: #8b0000;
+}
+
+footer, footer a {
+    color: white;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+    text-decoration: underline;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    font: inherit;
+}
+
+button {
+    align-self: flex-start;
+    padding: 8px 20px;
+    border: none;
+    background-color: #8b0000;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5c0000;
+}
+
+button.smazat {
+    padding: 4px 12px;
+    background-color: transparent;
+    border: 1px solid #8b0000;
+    color: #8b0000;
+}
+
+button.smazat:hover {
+    background-color: #8b0000;
+    color: white;
+}
+
+.chyba {
+    color: #8b0000;
+    font-weight: bold;
+}
+
+.seznam {
+    list-style: none;
+    padding: 0;
+}
+
+.seznam li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.seznam a {
+    flex: 1;
+    padding: 10px 0;
+    color: #8b0000;
+    text-decoration: none;
+}
+
+.seznam a:hover {
+    text-decoration: underline;
+}
+
+.datum {
+    color: #666;
+}
+
+.popis {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= recenze.nadpis %> - Restaurace 28.října</title>
+    <link rel="stylesheet" href="/css/recenze.css">
+</head>
+<body>
+
+<header>
+    <a href="/">
+        <img src="/obrazky/restaurace_logo.png" alt="Logo restaurace" height="85">
+    </a>
+    <nav>
+        <a href="/">Domů</a>
+        <a href="/menu">Naše menu</a>
+        <a href="/kontakty">Kontakty</a>
+        <a href="/recenze" class="active">Recenze</a>
+    </nav>
+</header>
+
+<main>
+    <a href="/recenze">&larr; Zpět na recenze</a>
+    <h1><%= recenze.nadpis %></h1>
+    <p class="datum"><%= new Date(recenze.datum).toLocaleDateString('cs-CZ') %></p>
+    <p class="popis"><%= recenze.popis %></p>
+    <form action="/recenze/<%= recenze.id %>/smazat" method="post" onsubmit="return confirm('Opravdu smazat tuto recenzi?')">
+        <button type="submit" class="smazat">Smazat recenzi</button>
+    </form>
+</main>
+
+<footer>
+    <p>© 2026 Restaurace 28.října</p>
+    <a href="https://www.instagram.com">instagram</a><a>|</a><a href="https://www.facebook.com">facebook</a>
+</footer>
+
+</body>
+</html>

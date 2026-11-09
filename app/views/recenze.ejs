@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recenze - Restaurace 28.října</title>
+    <link rel="stylesheet" href="/css/recenze.css">
+</head>
+<body>
+
+<header>
+    <a href="/">
+        <img src="/obrazky/restaurace_logo.png" alt="Logo restaurace" height="85">
+    </a>
+    <nav>
+        <a href="/">Domů</a>
+        <a href="/menu">Naše menu</a>
+        <a href="/kontakty">Kontakty</a>
+        <a href="/recenze" class="active">Recenze</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Recenze</h1>
+
+    <section>
+        <h2>Napište recenzi</h2>
+        <% if (chyba) { %>
+            <p class="chyba"><%= chyba %></p>
+        <% } %>
+        <form action="/recenze" method="post">
+            <label for="nadpis">Nadpis</label>
+            <input type="text" id="nadpis" name="nadpis" maxlength="100" required>
+
+            <label for="popis">Popis</label>
+            <textarea id="popis" name="popis" rows="5" required></textarea>
+
+            <button type="submit">Odeslat</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Všechny recenze</h2>
+        <% if (recenze.length === 0) { %>
+            <p>Zatím tu nejsou žádné recenze.</p>
+        <% } else { %>
+            <ul class="seznam">
+                <% recenze.slice().reverse().forEach(r => { %>
+                    <li>
+                        <a href="/recenze/<%= r.id %>"><%= r.nadpis %></a>
+                        <form action="/recenze/<%= r.id %>/smazat" method="post" onsubmit="return confirm('Opravdu smazat tuto recenzi?')">
+                            <button type="submit" class="smazat">Smazat</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } %>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Restaurace 28.října</p>
+    <a href="https://www.instagram.com">instagram</a><a>|</a><a href="https://www.facebook.com">facebook</a>
+</footer>
+
+</body>
+</html>

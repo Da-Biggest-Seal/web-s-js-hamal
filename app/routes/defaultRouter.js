@@ -1,28 +1,24 @@
 // priprava routeru
 const router = require('express').Router();
+const controller = require('../controllers/defaultController');
+const recenzeController = require('../controllers/recenzeController');
 
 // custom URL s custom odpovedi
-router.get('/hello', (req, res) => {
-	res.send('Hello Pane učiteli!');
-});
+router.get('/hello', controller.hello);
 
 // custom URL s EJS sablonou
-router.get(['/','/index'], (req, res) => {
-	res.render('index');
-});
+router.get(['/','/index'], controller.index);
+router.get('/kontakty', controller.kontakty);
+router.get('/menu', controller.menu);
 
-router.get('/kontakty', (req, res) => {
-	res.render('kontakty');
-});
-
-router.get('/menu', (req, res) => {
-	res.render('menu');
-});
+// recenze
+router.get('/recenze', recenzeController.recenze);
+router.post('/recenze', recenzeController.pridatRecenzi);
+router.get('/recenze/:id', recenzeController.detailRecenze);
+router.post('/recenze/:id/smazat', recenzeController.smazatRecenzi);
 
 // vsechny ostatni URL jsou chyba
-router.use((req, res) => {
-	res.status(404).send('Stránka nenalezena');
-});
+router.use(controller.notFound);
 
 // exportovani routeru pro pouziti v aplikaci
 module.exports = router;
