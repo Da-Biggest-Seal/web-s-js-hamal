@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Restaurace 28.října</title>
-    <link rel="stylesheet" href="/css/menu.css">
-</head>
-
-<header>
-<a href="/">
-  <img src="/obrazky/restaurace_logo.png" alt="Logo restaurace" height="85">
-</a>
- 
-    <div class="nadpis">
-        <nav>
-            <a href="/">Domů</a>
-            <a href="/menu">Naše menu</a>
-            <a href="/kontakty">Kontakty</a>
-            <a href="/recenze">Recenze</a>
-        </nav>
-    </div>
-</header>
+<%- include("partials/head", { title: "Menu", css: "menu" }) %>
+<%- include("partials/header", { active: "menu" }) %>
 
 <main class="main">
     <section class="hero">
@@ -28,8 +7,8 @@
     </section>
 </main>
 
-<body>
-    <h2>Nápoje</h2>
+    <section>
+        <h2>Nápoje</h2>
         <table>
             <tr>
                 <th>Název</th>
@@ -109,10 +88,5 @@
             </tr>
         </table>
     </section>
-</body>
 
-<footer>
-    <p>© 2026 Restaurace 28.října</p>
-    <a href="https://www.instagram.com">instagram</a><a>|</a><a href="https://www.facebook.com">facebook</a>
-</footer>
-</html>
+<%- include("partials/footer") %>

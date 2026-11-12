@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domů – Restaurace 28. října</title>
-    <link rel="stylesheet" href="/css/index.css">
-</head>
-
-<body>
-
-<header>
-    <a href="/">
-        <img src="/obrazky/restaurace_logo.png" alt="Logo restaurace" height="85">
-    </a>
-
-    <nav>
-        <a href="/" class="active">Domů</a>
-        <a href="/menu">Naše menu</a>
-        <a href="/kontakty">Kontakty</a>
-        <a href="/recenze">Recenze</a>
-    </nav>
-</header>
+<%- include("partials/head", { title: "Domů", css: "index" }) %>
+<%- include("partials/header", { active: "index" }) %>
 
 <main>
     <section class="hero">
@@ -46,11 +25,4 @@
     <img src="/obrazky/res_1.webp" alt="Interiér restaurace" width="400">
 </main>
 
-<footer>
-    <p>© 2026 Restaurace 28. října</p>
-    <a href="https://www.instagram.com">Instagram</a> <a>|</a>
-    <a href="https://www.facebook.com">Facebook</a>
-</footer>
-
-</body>
-</html>
+<%- include("partials/footer") %>
